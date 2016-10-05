@@ -1,8 +1,8 @@
-# i3status
-bash implementation of the i3 wm status provider (see the [i3status man page](https://i3wm.org/i3status/manpage.html) - the section *"External scripts/programs with i3status"*)
+# i3status.sh
+bash wrapper script for i3status’s JSON output. (see the [i3status man page](https://i3wm.org/i3status/manpage.html) - the section *"External scripts/programs with i3status"*)
 
 # Description
-replacement script for custom i3bar status modules. The script reads pairs of key-values from
+wrapper script for i3status’s JSON output. The script reads pairs of key-values from
 standard input and writes the status json to standard output. Each key is a module name and each value is
 the text to be shown.
 
