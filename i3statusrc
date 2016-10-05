@@ -4,16 +4,11 @@
 # each of these functions will be called with an argument, the text of the item, and should return a color name or "default"
 # for example, we define this function:
 # function day_or_night(){
-# 	# assuming the input is something like "10:25 AM" or "02:43 PM" this will return white for morning AM and black for PM
+# 	# assuming the input is something like "10:25 AM" or "02:43 PM" this will return white for AM and black for PM hours
 # 	[[ "$1" =~ "AM" ]] && echo "#ffffff" || echo "#000000";
 # }
 # then we use it for color
 # color "clock" "day_or_night"
-
-function stateColor(){
- 	# assuming the input is something like "10:25 AM" or "02:43 PM" this will return white for morning AM and black for PM
- 	[[ "$1" =~ "Running" ]] && echo "#00ff00" || echo "#ff0000";
-}
 
 # set colors for each item in order from left to right
 # colors are #RGB, #RRGGBB, 'default' or a function (see above)
