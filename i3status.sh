@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Description: replacement script for custom i3bar status modules. The script reads pairs of key-values from
+# Description: wrapper script for i3status’s JSON output. The script reads pairs of key-values from
 # standard input and writes the status json to standard output. Each key is a module name and each value is
 # the text to be shown.
 #
