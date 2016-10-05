@@ -1,12 +1,12 @@
 #!/bin/bash
 
-# Description: wrapper script for i3status’s JSON output. The script reads pairs of key-values from
+# Description: alternative implementation of the i3status using pure bash. The script reads pairs of key-values from
 # standard input and writes the status json to standard output. Each key is a module name and each value is
 # the text to be shown.
 #
 # Features:
-# - colors can be set for each item/module
-# - colors can be dynamicaly decided based on the text content by writing custom functions
+# - colors can be configured for each item/module
+# - colors can be set at runtime based on the text content by adding custom functions
 # - multiple values can be updated but the i3 status bar is only updated once
 #
 # Example usages:
