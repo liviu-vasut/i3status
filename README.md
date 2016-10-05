@@ -1,17 +1,21 @@
 # i3status.sh
-bash wrapper script for i3status’s JSON output. (see the [i3status man page](https://i3wm.org/i3status/manpage.html) - the section *"External scripts/programs with i3status"*)
+alternative implementation of the i3status using pure bash. (see [i3status](https://i3wm.org/i3status/manpage.html)). This is **not** a wrapper script to add new modules to the existing i3status JSON output, but rather a standalone script.
 
 # Description
-wrapper script for i3status’s JSON output. The script reads pairs of key-values from
-standard input and writes the status json to standard output. Each key is a module name and each value is
-the text to be shown.
+The script reads pairs of key-values from standard input and writes the status json to standard output. Each key is a module name and each value is the text to be shown. Configuration is as simple as specifying the item and the color:
+```
+color "clock" "#cccccc"
+color "bugsFound" "#ff0000"
+```
 
 # Features:
-- colors can be set for each item/module
-- colors can be dynamicaly decided based on the text content by writing custom functions
-- multiple values can be updated but the i3 status bar is only updated once
+- colors can be configured for each item/module
+- colors can be set at runtime based on the module content by adding custom functions
+- multiple values can be updated but the i3 status bar is only refreshed once
 
 # Example usages:
+First check out the sample configuration file - i3statusrc.
+
 1) use a file as input, for example /tmp/status.txt
    - in i3 config:
 
@@ -21,7 +25,7 @@ the text to be shown.
        status_command touch $statusfile && tail -f $statusfile 2>/dev/null | ~/bin/i3status.sh
     }
     ```
-   - a cron job can be set to write the time to the input stream of the script like this:
+   - a cron job can be set to write the time every minute to the file read by the script like this:
    
     ```
      * * * * * /usr/bin/date "+clock \%Y-\%m-\%d \%H:\%M" > /tmp/status.txt
@@ -40,7 +44,7 @@ the text to be shown.
        status_command ncat -k --recv-only -l 3333 | ~/bin/i3status.sh
      }
    ```
-   - a cron job can be set to write the time to the input stream of the script like this:
+   - a cron job can be set to write the time every minute to the input stream of the script like this:
    
    ```
      * * * * * /usr/bin/date "+clock \%Y-\%m-\%d \%H:\%M" | ncat localhost 3333
@@ -51,4 +55,5 @@ the text to be shown.
      echo -e "state\tRunning" | ncat mydesktop 3333
    ```
  
-Check out the sample configuration file - i3statusrc. You can easily test your setup by running the script and typing key/value pairs separated by TAB, one pair per line.
+# Test/Debug
+You can easily test your setup by manualy running the script and typing key/value pairs separated by TAB, one pair per line.
