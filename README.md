@@ -51,3 +51,4 @@ the text to be shown.
      echo -e "state\tRunning" | ncat mydesktop 3333
    ```
  
+Check out the sample configuration file - i3statusrc. You can easily test your setup by running the script and typing key/value pairs separated by TAB, one pair per line.
