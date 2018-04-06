@@ -106,7 +106,7 @@ function render(){
 		clr="${colors[$i]}";
 		if [ -n "$clr" ] && [ "$clr" != "default" ] ; then
 			if [ -n "$(type -t $clr)" ] && [ "$(type -t $clr)" = function ]; then
-				clr=$($clr ${values[$i]});
+				clr=$($clr "${values[$i]}");
 			fi
 			[ -n "$clr" ] && [ "$clr" != "default" ] && echo -n ", \"color\": \"$clr\"";
 		fi
